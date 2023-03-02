@@ -23,8 +23,66 @@ public:
 };
 int Foo::num_instances = 0;
 
+
+
+class Wallet{
+
+private:
+
+    int eur;
+    int cents;
+
+public:
+
+    Wallet(int _eur, int _cents){
+        eur = _eur;
+        cents = _cents;
+    }
+
+    void print() const{
+        cout << "€" << eur <<"." << cents <<endl;
+    }
+
+    friend Wallet& operator+=(Wallet &a, Wallet &b);
+};
+
+Wallet& operator+=(Wallet &a, Wallet &b){
+
+    a.cents+=b.cents;
+    a.eur+=b.eur;
+
+    a.eur+=a.cents/100;
+    a.cents%=100;
+
+    b.cents = 0;
+    b.eur = 0;
+
+    return a;
+}
+
+
+
+
 int main(){
 
+    Wallet p1 = Wallet(100,50);
+    Wallet p2 = Wallet(11, 75);
+
+    p1.print();
+    p2.print();
+    cout << endl;
+    p1 += p2;
+    p1.print();
+    p2.print();
+    cout << endl;
+    p2 += p1;
+    p1.print();
+    p2.print();
+    cout << endl;
+
+
+
+    return 0;
     cout << Foo::get_instances() << endl;
 
     Foo f1 = Foo();
