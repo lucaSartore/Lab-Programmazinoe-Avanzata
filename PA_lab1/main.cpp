@@ -5,16 +5,12 @@
 using namespace std;
 
 int main() {
+    Person p = Person((char*)"mario", 100);
+    Person p2 = p;
+    Person p3 = Person();
 
-    Persona p = Persona((char*)"mario", (char*)"rossi", 100);
-    Persona p2 = p;
 
-    cout << "1" << endl;
-
-    p2.name[0] = '!';
-
-    cout << "2" << endl;
-
-    cout << p.name << endl;
-
+    cout << p << endl;
+    cout << p2 << endl;
+    cout << p3 << endl;
 }

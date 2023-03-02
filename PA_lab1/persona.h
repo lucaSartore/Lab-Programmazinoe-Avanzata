@@ -22,19 +22,27 @@ struct Persona{
 class Person{
     private:
 
-    int age
+    int age;
     char* name;
     int* b;
 
     public:
 
+    char* get_name() const;
+
+    int get_age() const;
+
     Person(const Person &p);
 
     Person();
 
-    Person(char* _name, int age);
+    Person(char* _name, int _age);
+
+    ~Person();
 
 
 };
+
+ostream& operator <<(ostream& os, const Person& p);
 
 #endif
