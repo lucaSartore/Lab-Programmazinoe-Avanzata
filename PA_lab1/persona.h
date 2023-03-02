@@ -19,4 +19,22 @@ struct Persona{
 
 };
 
+class Person{
+    private:
+
+    int age
+    char* name;
+    int* b;
+
+    public:
+
+    Person(const Person &p);
+
+    Person();
+
+    Person(char* _name, int age);
+
+
+};
+
 #endif
