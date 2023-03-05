@@ -1,17 +1,14 @@
 #include <iostream>
-#include <cstring>
 #include "persona.h"
-
+#include "studente.h"
 using namespace std;
 
+
 int main() {
-    Person p = Person((char*)"mario", 100);
-    Person p2 = p;
-    Person p3 = Person();
 
+    Persona p = Persona((char*)"CIANO", (char*)"CONTIN", 1969);
 
-    cout << p << endl;
-    cout << p2 << endl;
-    cout << p3 << endl;
+    Persona* studente = new Studente((char*)"CIANO", (char*)"CONTIN", 1969);
 
+    cout << *studente;
 }
