@@ -83,7 +83,13 @@ FloatingPoint operator - (FloatingPoint &f1, FloatingPoint &f2){
 }
 
 
+
+
 int main(){
+
+
+    return  0;
+
     Integer i1(10);
     Integer i2(12);
     FloatingPoint f1(11.5);

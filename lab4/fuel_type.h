@@ -19,17 +19,20 @@ class FuelType{
 private:
     FuelTypeEnum type;
 public:
+    FuelType(const FuelType & ft){
+        type = ft.type;
+    }
     explicit FuelType(){
         type = FuelTypeEnum ::PETROL;
     }
     explicit FuelType(FuelTypeEnum fuel_type){
         type = fuel_type;
     }
-    FuelTypeEnum get_fuel_type(){
+    FuelTypeEnum get_fuel_type() const{
         return type;
     }
 };
 
-std::ostream & operator<<(std::ostream& os, FuelType *ft) const;
+std::ostream & operator<<(std::ostream& os,const FuelType &ft);
 
 #endif //LAB4_FUEL_TYPE_H

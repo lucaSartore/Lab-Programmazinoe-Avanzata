@@ -7,8 +7,8 @@
 #include <iostream>
 
 
-std::ostream & operator<<(std::ostream& os, FuelType *ft) const{
-    switch (ft->get_fuel_type()) {
+std::ostream & operator<<(std::ostream& os,const FuelType &ft){
+    switch (ft.get_fuel_type()) {
         case FuelTypeEnum ::DISEL:
             return os << "Fuel: Disel";
             break;

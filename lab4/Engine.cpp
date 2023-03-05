@@ -29,10 +29,23 @@ Engine::Engine(FuelTypeEnum _fuel_type, int _rpm, bool _status) {
     status = _status;
 }
 
-FuelType Engine::get_fuel_type() {
+FuelType Engine::get_fuel_type() const{
     return fuel_type;
 }
 
 int Engine::get_rpm() {
     return rpm;
+}
+
+std::ostream & operator << (std::ostream & os, const Engine& e){
+    if (e.status == false){
+        return os << "engine turned off; " << e.get_fuel_type();
+    }
+    return os << "engine turned on at: "<< e.rpm <<"rpm; " << e.get_fuel_type();
+}
+
+Engine::Engine() {
+    fuel_type = FuelType();
+    status = false;
+    rpm = 100;
 }

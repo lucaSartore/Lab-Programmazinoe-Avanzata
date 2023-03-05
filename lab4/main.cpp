@@ -2,16 +2,28 @@
 
 #include "fuel_type.h"
 #include "Engine.h"
+#include "Car.h"
 
 using namespace std;
 
 int main(){
-    cout << "LAB 4" << endl;
 
-    Engine engine(FuelTypeEnum::DISEL,1,666);
+    Car car = Car();
+    cout << car << endl;
 
-    cout << engine.get_fuel_type();
+    car.turn_on();
+    cout << car << endl;
 
+    car.give_gas();
+    cout << car << endl;
 
+    car.give_gas();car.give_gas();car.give_gas();car.give_gas();car.give_gas();car.give_gas();car.give_gas();car.give_gas();car.give_gas();car.give_gas();
+    cout << car << endl;
+
+    car.brake();car.brake();car.brake();car.brake();
+    cout << car << endl;
+
+    car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();car.brake();
+    cout << car << endl;
 
 }
