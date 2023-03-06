@@ -17,13 +17,6 @@ void Engine::turn_off() {
 
 }
 
-std::ostream &Engine::print_operator(std::ostream &os) {
-    if(is_turned_on){
-        return os << "Generic Engine turned ON";
-    }else{
-        return os << "Generic Engine turned OFF";
-    }
-}
 
 std::ostream &operator<<(std::ostream &os, Engine &e) {
     return e.print_operator(os);

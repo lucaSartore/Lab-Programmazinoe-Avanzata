@@ -10,7 +10,7 @@
 class Engine {
 protected:
     bool is_turned_on;
-    virtual std::ostream& print_operator(std::ostream& os);
+    virtual std::ostream& print_operator(std::ostream& os)=0;
     friend std::ostream& operator<<(std::ostream& os, Engine& e);
 public:
     Engine();

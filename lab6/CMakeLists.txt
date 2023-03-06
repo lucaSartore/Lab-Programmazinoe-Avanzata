@@ -3,4 +3,4 @@ project(PA_lab6)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(PA_lab6 main.cpp engine.h engine.cpp gas_engine.cpp gas_engine.h)
+add_executable(PA_lab6 main.cpp engine.h engine.cpp gas_engine.cpp gas_engine.h hybrid_engine.cpp hybrid_engine.h elettric_engine.cpp elettric_engine.h)

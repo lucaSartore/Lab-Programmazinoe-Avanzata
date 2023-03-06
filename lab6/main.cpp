@@ -1,5 +1,7 @@
 #include <iostream>
 #include "engine.h"
+#include "gas_engine.h"
+#include "elettric_engine.h"
 
 using namespace std;
 
@@ -7,6 +9,23 @@ using namespace std;
 
 int main(){
 
+    Engine* engine = new ElettricEngine();
+
+    try{
+        engine->refuel();
+    }
+    catch(const char * e){
+        cout << "Error: " << e << endl;
+    }
+
+    cout<< *engine << endl;
+
+    try{
+        engine->recharge();
+    }
+    catch(const char * e){
+        cout << "Error: " << e << endl;
+    }
 
 
 

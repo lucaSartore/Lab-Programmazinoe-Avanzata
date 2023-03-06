@@ -20,7 +20,7 @@ std::ostream &GasEngine::print_operator(std::ostream &os) {
 
 void GasEngine::refuel() {
     float to_refuel = 1-fuel_tank_percent;
-    cout<< "Refueling for a  cost of: " << to_refuel*85 << "€";
+    cout<< "Refueling for a  cost of: " << to_refuel*85 << " Euro" << endl;
     fuel_tank_percent = 1;
 }
 
