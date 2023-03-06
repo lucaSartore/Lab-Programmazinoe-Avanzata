@@ -2,14 +2,14 @@
 #include "engine.h"
 #include "gas_engine.h"
 #include "elettric_engine.h"
-
+#include "hybrid_engine.h"
 using namespace std;
 
 
 
 int main(){
 
-    Engine* engine = new ElettricEngine();
+    Engine* engine = new HybridEngine();
 
     try{
         engine->refuel();

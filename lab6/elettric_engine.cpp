@@ -24,6 +24,6 @@ void ElettricEngine::refuel() {
 
 void ElettricEngine::recharge() {
     float to_recharge = 1-battery_percent;
-    cout<< "Refueling for a  cost of: " << to_recharge*25 << " Euro" << endl;
+    cout<< "Recharging for a  cost of: " << to_recharge*25 << " Euro" << endl;
     battery_percent = 1;
 }

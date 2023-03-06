@@ -11,8 +11,14 @@
 #include <iostream>
 using namespace std;
 
-class HybridEngine: virtual public GasEngine, virtual public ElettricEngine{
-
+class HybridEngine: public GasEngine, public ElettricEngine{
+protected:
+    std::ostream& print_operator(std::ostream& os) final;
+public:
+    HybridEngine();
+    ~HybridEngine() override = default;
+    void refuel() final;
+    void recharge() final;
 };
 
 
