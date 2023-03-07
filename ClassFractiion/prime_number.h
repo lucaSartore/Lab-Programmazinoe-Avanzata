@@ -28,6 +28,8 @@ public:
     bool operator<=(const PrimeNumber& n2) const;
     bool operator==(const PrimeNumber& n2) const;
 
+    void operator*=(const PrimeNumber& n2);
+
 };
 
 ostream& operator<<(ostream& os, const PrimeNumber& pn);

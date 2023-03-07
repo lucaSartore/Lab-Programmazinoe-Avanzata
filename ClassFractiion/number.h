@@ -17,8 +17,8 @@ private:
     set<PrimeNumber> numerator;
     set<PrimeNumber> denominator;
 
-    void insert_to_numerator();
-    void insert_to_denominator();
+    void insert_to_numerator(PrimeNumber number_to_insert);
+    void insert_to_denominator(PrimeNumber number_to_insert);
 public:
     Number(int number);
 };

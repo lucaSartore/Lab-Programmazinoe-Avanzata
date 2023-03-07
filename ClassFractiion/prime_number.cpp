@@ -72,6 +72,13 @@ bool PrimeNumber::operator==(const PrimeNumber &n2) const {
     return number==n2.number;
 }
 
+void PrimeNumber::operator*=(const PrimeNumber &n2) {
+    if(n2.number != number){
+        throw invalid_argument("Impossible to multiply prime numbers with different value");
+    }
+    multiplier += n2.multiplier;
+}
+
 ostream& operator<<(ostream& os, const PrimeNumber& pn){
     return os << pn.get_number() << "^" << pn.get_multiplier();
 }

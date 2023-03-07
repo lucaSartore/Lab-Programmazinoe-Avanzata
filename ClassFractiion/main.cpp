@@ -14,12 +14,13 @@ int main() {
 
     numerator.insert(PrimeNumber(1));
     numerator.insert(PrimeNumber(3));
+    numerator.insert(PrimeNumber(3));
     numerator.insert(PrimeNumber(7));
 
 
 
     auto a = numerator.find(PrimeNumber(11));
-    cout << *a << endl;
+    cout << numerator.count(PrimeNumber(3)) << endl;
 
 
 //    set s = set<int>();
