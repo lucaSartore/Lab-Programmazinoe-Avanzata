@@ -4,7 +4,7 @@
 
 #include "prime_number.h"
 #include <iostream>
-
+#include <cmath>
 bool is_prime(int number){
     if(number==1){
         return true;
@@ -48,7 +48,11 @@ int PrimeNumber::get_multiplier() const {
 }
 
 int PrimeNumber::get_total() const {
-    return multiplier*number;
+    return std::lround(
+            lround(
+                std::pow(number, multiplier)
+                )
+                );
 }
 
 bool PrimeNumber::is_zero() const {

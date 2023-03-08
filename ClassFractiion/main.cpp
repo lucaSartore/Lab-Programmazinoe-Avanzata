@@ -1,6 +1,7 @@
 #include <iostream>
 #include <set>
 #include "prime_number.h"
+#include "cmath"
 #include "number.h"
 
 
@@ -9,29 +10,17 @@ using namespace std;
 
 int main() {
 
+    Number n = Number(3);
 
-    set<PrimeNumber> numerator = set<PrimeNumber>();
+    n /= Number(4);
+    n *= 2;
 
-    numerator.insert(PrimeNumber(1));
-    numerator.insert(PrimeNumber(3));
-    numerator.insert(PrimeNumber(3));
-    numerator.insert(PrimeNumber(7));
-
-
-
-    auto a = numerator.find(PrimeNumber(11));
-    cout << numerator.count(PrimeNumber(3)) << endl;
+    n = n * 10;
+    n = n / 5;
 
 
-//    set s = set<int>();
-//
-//
-//    s.insert(11);
-//    s.insert(21);
-//    s.insert(0);
-//    s.insert(3);
-//
-//    for(auto i: s){
-//        cout << i << endl;
-//    }
+
+
+    cout << n.get_value() << endl;
+
 }
