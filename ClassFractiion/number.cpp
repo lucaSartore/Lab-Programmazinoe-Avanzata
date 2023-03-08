@@ -4,6 +4,9 @@
 
 #include "number.h"
 
+#include <iostream>
+#include <list>
+
 Number::Number(int number) {
     numerator = set<PrimeNumber>();
     denominator = set<PrimeNumber>();
@@ -17,13 +20,11 @@ Number::Number(int number) {
     while (number != 1){
         if(number%divisor == 0){
             number /= divisor;
-            cout << "insert: " << divisor << endl;
             insert_to_numerator(PrimeNumber(divisor,1));
         }else{
             divisor++;
         }
     }
-    cout << "compleated constructor!" << endl;
 
 }
 
@@ -58,37 +59,79 @@ float Number::get_value(){
     float n = 1;
     for(auto pn: numerator){
         n*=(float) pn.get_total();
-        cout << "multiply by: " << pn.get_total() << endl;
     }
     for(auto pn: denominator){
         n/=(float) pn.get_total();
-        cout << "dividing by: " << pn.get_total() << endl;
     }
     return n;
 }
 
 void Number::simplify() {
+
+
+    typedef std::set<PrimeNumber>::const_iterator IterType;
+
+    list to_edit = list<pair<IterType, IterType>>();
+
+
+    auto numerator_iter = numerator.begin();
+    auto denominator_iter = denominator.begin();
+
+    while (numerator_iter != numerator.end() and denominator_iter != denominator.end()){
+
+        int numerator_term = numerator_iter->get_number();
+        int denominator_term = denominator_iter->get_number();
+
+        // they are simplifiable, so i save them for later
+        if(numerator_iter->get_number() == denominator_iter->get_number()){
+            to_edit.emplace_front(pair(numerator_iter,denominator_iter));
+            numerator_iter++;
+            denominator_iter++;
+        }else if(numerator_term > denominator_term){
+            denominator_iter++;
+        }else{
+            numerator_iter++;
+        }
+
+    }
+
+
+    cout << "half way simplification" << endl;
+
+    // simplify elements
+    for(auto e: to_edit){
+
+        //save the 2 values
+        PrimeNumber numerator_term = *e.first;
+        PrimeNumber denominator_term = *e.second;
+
+        // remove the values
+        numerator.erase(e.first);
+        denominator.erase(e.second);
+
+        // simplify the 2 values
+        numerator_term.simplify(denominator_term);
+
+        // add them back only if they are not zero
+        if(numerator_term.get_multiplier() != 0){
+            insert_to_numerator(numerator_term);
+        }
+        if(denominator_term.get_multiplier() != 0){
+            insert_to_denominator(denominator_term);
+        }
+
+    }
 }
 
 Number Number::operator*(const Number &other) const {
     Number number = *this;
-    for(auto e: other.numerator){
-        number.insert_to_numerator(e);
-    }
-    for(auto e: other.denominator){
-        number.insert_to_denominator(e);
-    }
+    number *= other;
     return number;
 }
 
 Number Number::operator/(const Number &other) const {
     Number number = *this;
-    for(auto e: other.denominator){
-        number.insert_to_numerator(e);
-    }
-    for(auto e: other.numerator){
-        number.insert_to_denominator(e);
-    }
+    number /= other;
     return number;
 }
 
@@ -109,4 +152,17 @@ void Number::operator/=(const Number &other) {
         insert_to_denominator(e);
     }
 
+}
+
+void Number::debug_print() const {
+    cout << "1";
+    for(auto e: numerator){
+        cout << " * " << e;
+    }
+    cout << endl << "--------------------------------------------------------------" << endl;
+    cout << "1";
+    for(auto e: denominator){
+        cout << " * " << e;
+    }
+    cout << endl;
 }

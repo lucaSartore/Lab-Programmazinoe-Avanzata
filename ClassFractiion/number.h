@@ -20,15 +20,18 @@ private:
     void insert_to_numerator(PrimeNumber number_to_insert);
     void insert_to_denominator(PrimeNumber number_to_insert);
 
-    void simplify();
 public:
     Number(int number);
     float get_value();
+
+    void simplify();
 
     Number operator*(const Number& other) const;
     Number operator/(const Number& other) const;
     void operator*=(const Number& other);
     void operator/=(const Number& other);
+
+    void debug_print() const;
 };
 
 

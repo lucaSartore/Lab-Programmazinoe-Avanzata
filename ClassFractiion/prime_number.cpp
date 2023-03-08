@@ -30,7 +30,7 @@ void PrimeNumber::simplify(PrimeNumber &other_prime_number) {
     if(number!=other_prime_number.number){
         throw std::invalid_argument("impossible to simplify two different numbers");
     }
-    if(multiplier>other_prime_number.multiplier){
+    if(multiplier<other_prime_number.multiplier){
         other_prime_number.multiplier-=multiplier;
         multiplier=0;
     }else{
